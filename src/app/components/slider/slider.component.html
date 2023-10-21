@@ -3,8 +3,8 @@
     <div class="slide" *ngFor="let movie of movies.results">
       <div class="slide-bg">
         <img
-          src="https://image.tmdb.org/t/p/original/2vFuG6bWGyQUzYS9d69E5l85nIz.jpg"
-          alt=""
+        src="{{'https://image.tmdb.org/t/p/w1280' + movie.backdrop_path}}"
+        alt=""
         />
       </div>
       <div class="slide-pane">
