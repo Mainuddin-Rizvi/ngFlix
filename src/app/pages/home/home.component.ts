@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
   selector: 'app-home',
@@ -6,5 +7,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  upcomingMovies$ = this.moviesService.getUpcomingMovies();
+  topRatedMovies$ = this.moviesService.getTopRatedMovies();
 
+
+  constructor(private moviesService:MoviesService){}
 }

@@ -1,5 +1,5 @@
-import { MoviesService } from 'src/app/services/movies.service';
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Movie } from 'src/app/types/movie';
 
 @Component({
   selector: 'app-banner',
@@ -7,9 +7,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./banner.component.scss']
 })
 export class BannerComponent {
-  upcomingMovies$ = this.moviesService.getUpcomingMovies();
 
-  constructor(private moviesService:MoviesService){}
-
+  @Input() shows : Movie[] = [];
+  @Input() title ='';
 
 }
