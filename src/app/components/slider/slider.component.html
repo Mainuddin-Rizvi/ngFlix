@@ -34,3 +34,9 @@
 <pre>
   {{movies$ | async | json}}
 </pre>
+
+<div *ngIf="movies$ | async as movies">
+  <div class="movie" *ngFor="let movie of movies.results">
+    {{movie.original_title}}
+  </div>
+</div>
