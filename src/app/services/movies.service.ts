@@ -5,11 +5,14 @@ import { HttpClient } from '@angular/common/http';
 @Injectable()
 export class MoviesService {
 
+  private apiUrl = 'https://api.themoviedb.org/3'
+  private apiKey = '606bb1999289eb80238ba12395b4496f'
+
   constructor(private http:HttpClient) {}
 
   getPopularMovies(){
     return this.http.get<MoviesDto>(
-      'https://api.themoviedb.org/3/movie/popular?api_key=606bb1999289eb80238ba12395b4496f'
+      `${this.apiUrl}/movie/popular?api_key=${this.apiKey}`
       );
   }
 }

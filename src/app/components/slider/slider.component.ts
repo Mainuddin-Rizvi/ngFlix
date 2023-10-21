@@ -7,7 +7,7 @@ import {
   transition,
   trigger,
 } from '@angular/animations';
-
+import { imagesBaseUrl } from 'src/app/constants/images-sizes';
 
 
 @Component({
@@ -29,9 +29,18 @@ export class SliderComponent implements OnInit{
 
   slideIndex = 0;
 
+  imagesBaseUrl = imagesBaseUrl;
+
   ngOnInit(): void {
+    this.changeSlide();
+  }
+
+  changeSlide(){
     setInterval(() => {
       this.slideIndex += 1
+      if(this.slideIndex>10){
+        this.slideIndex = 0;
+      }
     },5000)
   }
 }
