@@ -1,8 +1,9 @@
 .slider {
   height: 35rem;
+  position: relative;
   .slide {
     width: 100%;
-    position: relative;
+    position: absolute;
     height: 35rem;
     &-bg {
       height: 35rem;
