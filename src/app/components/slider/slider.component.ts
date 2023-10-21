@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
 import { MoviesService } from 'src/app/services/movies.service';
 
 @Component({
@@ -7,9 +6,18 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent{
+export class SliderComponent implements OnInit{
 
   constructor(private moviesService: MoviesService){}
 
+
   movies$ = this.moviesService.getPopularMovies();
+
+  slideIndex = 0;
+
+  ngOnInit(): void {
+    setInterval(() => {
+      this.slideIndex += 1
+    },5000)
+  }
 }
