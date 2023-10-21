@@ -7,18 +7,9 @@ import { MoviesService } from 'src/app/services/movies.service';
   templateUrl: './slider.component.html',
   styleUrls: ['./slider.component.scss']
 })
-export class SliderComponent implements OnInit{
-  movies : any;
+export class SliderComponent{
 
   constructor(private moviesService: MoviesService){}
 
-  ngOnInit(){
-   this.getPopularMovies();
-  }
-
-  getPopularMovies(){
-    this.moviesService.getPopularMovies().subscribe(data=>{
-        this.movies = data;
-      })
-  }
+  movies$ = this.moviesService.getPopularMovies();
 }
