@@ -5,6 +5,8 @@ import { MoviesService } from 'src/app/services/movies.service';
 import { Movie } from 'src/app/types/movie';
 import { IMAGES_SIZES } from 'src/app/constants/images-sizes';
 import { Video } from 'src/app/types/video';
+import { Image } from 'src/app/types/image';
+
 
 
 @Component({
@@ -19,7 +21,7 @@ export class ShowDetailComponent implements OnInit{
 
   show$: Observable<Movie> | null = null;
   showVideos$ : Observable<Video[]> | null = null;
-
+  showImages$ : Observable<Image[]> | null = null;
   constructor(private router: ActivatedRoute,private moviesService : MoviesService){}
   ngOnInit(): void {
     // this.router.params.subscribe(params => {
@@ -30,6 +32,7 @@ export class ShowDetailComponent implements OnInit{
     this.showId = this.router.snapshot.params['id'];
     this.show$ = this.moviesService.getMovieById(this.showId);
     this.showVideos$ = this.moviesService.getMovieVideos(this.showId);
+    this.showImages$ = this.moviesService.getMovieImages(this.showId);
   }
 
 

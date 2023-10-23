@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { map } from 'rxjs';
 import { VideosDto } from '../types/video';
+import { ImagesDto } from '../types/image';
 
 @Injectable()
 export class MoviesService {
@@ -28,5 +29,13 @@ export class MoviesService {
         `${this.apiUrl}/movie/${id}/videos?api_key=${this.apiKey}`
       )
       .pipe(map((data) => data.results));
+  }
+
+  getMovieImages(id: string) {
+    return this.http
+      .get<ImagesDto>(
+        `${this.apiUrl}/movie/${id}/images?api_key=${this.apiKey}`
+      )
+      .pipe(map((data) => data.backdrops));
   }
 }
