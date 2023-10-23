@@ -22,6 +22,7 @@ import { Movie } from 'src/app/types/movie';
 })
 export class SliderComponent implements OnInit{
   @Input() slides: Movie[] = [];
+  @Input() isHeader = false;
 
   constructor(){}
   slideIndex = 0;
@@ -29,7 +30,9 @@ export class SliderComponent implements OnInit{
   imagesBaseUrl = imagesBaseUrl;
 
   ngOnInit(): void {
+    if(!this.isHeader ){
     this.changeSlide();
+    }
   }
 
   changeSlide(){
