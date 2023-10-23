@@ -56,7 +56,7 @@
       <ng-container *ngIf="showVideos$ | async as showVideos">
         <div class="grid">
           <div class="col-4" *ngFor="let showVideo of showVideos">
-            {{showVideo | json}}
+            <app-video-embed [key]="showVideo.key"></app-video-embed>
           </div>
         </div>
       </ng-container>
