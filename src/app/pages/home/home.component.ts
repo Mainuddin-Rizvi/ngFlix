@@ -10,6 +10,7 @@ import { Tvshow, mapToMovies } from 'src/app/types/tvshow';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent {
+  popularMovies$ = this.moviesService.getMoviesByType('popular',12);
   upcomingMovies$ = this.moviesService.getMoviesByType('upcoming',12);
   topRatedMovies$ = this.moviesService.getMoviesByType('top_rated',12);
   popularTvShows$ = this.tvShowsService.getTvShowsByType('popular',12).
