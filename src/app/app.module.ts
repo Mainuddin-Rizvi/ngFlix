@@ -6,7 +6,6 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
 import { FooterComponent } from './shared/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
-import { MovieListComponent } from './pages/movie-list/movie-list.component';
 import { SliderComponent } from './components/slider/slider.component';
 import { HttpClientModule } from '@angular/common/http';
 import { MoviesService } from './services/movies.service';
@@ -19,18 +18,25 @@ import { TabViewModule } from 'primeng/tabview';
 import { VideoEmbedComponent } from './components/video-embed/video-embed.component';
 import { ImageModule } from 'primeng/image';
 import { CarouselModule } from 'primeng/carousel';
+import { ShowsListComponent } from './pages/shows-list/shows-list.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { FormsModule } from '@angular/forms';
+import { PaginatorModule } from 'primeng/paginator';
+
+
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
     HomeComponent,
-    MovieListComponent,
     SliderComponent,
     BannerComponent,
     ShowItemComponent,
     ShowDetailComponent,
     VideoEmbedComponent,
+    ShowsListComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -39,7 +45,10 @@ import { CarouselModule } from 'primeng/carousel';
     BrowserAnimationsModule,
     TabViewModule,
     ImageModule,
-    CarouselModule
+    CarouselModule,
+    InputTextModule,
+    FormsModule,
+    PaginatorModule
   ],
   providers: [MoviesService,TvshowsService],
   bootstrap: [AppComponent]
